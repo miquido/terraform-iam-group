@@ -1,0 +1,30 @@
+name: miquido-terraform-iam-group
+bitbucket_repo: miquido/terraform-iam-group
+badges: []
+related: []
+# description: ""
+usage: |-
+  ```hcl
+  module {
+    source = "git::ssh://git@bitbucket.org/miquido/terraform-iam-group.git?ref=master"
+
+    name = "ExampleGroup"
+    attach_policy_arns = []
+    assume_role_policies = [
+      {
+        AccountIDs = ["00000000", "11111111"]
+        RoleNames  = ["*AdminAccess"]
+      },
+      {
+        AccountIDs = ["2222222"]
+        RoleNames  = ["ReadOnlyAccess"]
+      }
+    ]
+  }
+  ```
+include:
+  - "docs/terraform.md"
+  - "docs/targets.md"
+contributors:
+  - name: "Konrad Obal"
+    github: "k911"
