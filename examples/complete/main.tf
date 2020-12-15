@@ -5,7 +5,7 @@ provider "aws" {
 module "test-iam-group" {
   source = "../../"
 
-  name = "TestGroup"
+  name               = "TestGroup"
   attach_policy_arns = []
   assume_role_policies = [
     {

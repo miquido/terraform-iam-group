@@ -3,9 +3,7 @@
 
 # miquido-terraform-iam-group
 ---
-Terraform Module
-
-BitBucket Repository: https://bitbucket.org/miquido/terraform-iam-group
+**Terraform Module**
 ## Usage
 
 ```hcl
@@ -26,26 +24,44 @@ module {
   ]
 }
 ```
+<!-- markdownlint-disable -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.13 |
+| aws | >= 2.0 |
+| local | >= 1.2 |
+| null | >= 2.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | >= 2.0 |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| assume_role_policies | List of IAM Policies with Assume Role permissions to create and attach to created IAM Group | object | `<list>` | no |
-| attach_policy_arns | List of IAM Policy ARNs to attach to the created IAM Group | list(string) | `<list>` | no |
-| name | The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-_.. Group names are not distinguished by case. For example, you cannot create groups named both `ADMINS` and `admins`. | string | - | yes |
-| path | Path in which to create the group and policies. | string | `/users/` | no |
+|------|-------------|------|---------|:--------:|
+| assume\_role\_policies | List of IAM Policies with Assume Role permissions to create and attach to created IAM Group | <pre>list(object({<br>    AccountIDs = list(string)<br>    RoleNames  = list(string)<br>  }))</pre> | `[]` | no |
+| attach\_policy\_arns | List of IAM Policy ARNs to attach to the created IAM Group | `list(string)` | `[]` | no |
+| name | The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-\_.. Group names are not distinguished by case. For example, you cannot create groups named both `ADMINS` and `admins`. | `string` | n/a | yes |
+| path | Path in which to create the group and policies. | `string` | `"/users/"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| group_arn | The ARN assigned by AWS for this group. |
-| group_id | The group's ID. |
-| group_name | The group's name. |
-| group_unique_id | The unique ID assigned by AWS for this group. |
+| group\_arn | The ARN assigned by AWS for this group. |
+| group\_id | The group's ID. |
+| group\_name | The group's name. |
+| group\_unique\_id | The unique ID assigned by AWS for this group. |
 
+<!-- markdownlint-restore -->
+<!-- markdownlint-disable -->
 ## Makefile Targets
-```
+```text
 Available targets:
 
   help                                Help screen
@@ -54,13 +70,14 @@ Available targets:
   lint                                Lint Terraform code
 
 ```
+<!-- markdownlint-restore -->
 
 
 ## Developing
 
 1. Make changes in terraform files
 
-2. Regerate documentation
+2. Regenerate documentation
 
     ```bash
     bash <(curl -s https://terraform.s3.k.miquido.net/update.sh)
@@ -90,5 +107,7 @@ Copyright © 2017-2020 [Miquido](https://miquido.com)
 
   [logo]: https://www.miquido.com/img/logos/logo__miquido.svg
   [website]: https://www.miquido.com/
+  [gitlab]: https://gitlab.com/miquido
   [github]: https://github.com/miquido
   [bitbucket]: https://bitbucket.org/miquido
+
