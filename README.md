@@ -4,11 +4,15 @@
 # miquido-terraform-iam-group
 ---
 **Terraform Module**
+
+
+GitLab Repository: https://gitlab.com/miquido/terraform/miquido-terraform-iam-group
+
 ## Usage
 
 ```hcl
 module {
-  source = "git::ssh://git@bitbucket.org/miquido/terraform-iam-group.git?ref=master"
+  source = "git::ssh://git@gitlab.com:miquido/terraform/terraform-iam-group.git?ref=master"
 
   name = "ExampleGroup"
   attach_policy_arns = []
@@ -29,35 +33,48 @@ module {
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.13 |
-| aws | >= 2.0 |
-| local | >= 1.2 |
-| null | >= 2.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 2.0 |
+| <a name="requirement_local"></a> [local](#requirement\_local) | >= 1.2 |
+| <a name="requirement_null"></a> [null](#requirement\_null) | >= 2.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | >= 2.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 2.0 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_iam_group.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group) | resource |
+| [aws_iam_group_policy_attachment.defaults](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group_policy_attachment) | resource |
+| [aws_iam_group_policy_attachment.permit-assume-role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group_policy_attachment) | resource |
+| [aws_iam_policy.permit-assume-role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
+| [aws_iam_policy_document.permit-assume-role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| assume\_role\_policies | List of IAM Policies with Assume Role permissions to create and attach to created IAM Group | <pre>list(object({<br>    AccountIDs = list(string)<br>    RoleNames  = list(string)<br>  }))</pre> | `[]` | no |
-| attach\_policy\_arns | List of IAM Policy ARNs to attach to the created IAM Group | `list(string)` | `[]` | no |
-| name | The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-\_.. Group names are not distinguished by case. For example, you cannot create groups named both `ADMINS` and `admins`. | `string` | n/a | yes |
-| path | Path in which to create the group and policies. | `string` | `"/users/"` | no |
+| <a name="input_assume_role_policies"></a> [assume\_role\_policies](#input\_assume\_role\_policies) | List of IAM Policies with Assume Role permissions to create and attach to created IAM Group | <pre>list(object({<br>    AccountIDs = list(string)<br>    RoleNames  = list(string)<br>  }))</pre> | `[]` | no |
+| <a name="input_attach_policy_arns"></a> [attach\_policy\_arns](#input\_attach\_policy\_arns) | List of IAM Policy ARNs to attach to the created IAM Group | `list(string)` | `[]` | no |
+| <a name="input_name"></a> [name](#input\_name) | The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-\_.. Group names are not distinguished by case. For example, you cannot create groups named both `ADMINS` and `admins`. | `string` | n/a | yes |
+| <a name="input_path"></a> [path](#input\_path) | Path in which to create the group and policies. | `string` | `"/users/"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| group\_arn | The ARN assigned by AWS for this group. |
-| group\_id | The group's ID. |
-| group\_name | The group's name. |
-| group\_unique\_id | The unique ID assigned by AWS for this group. |
-
+| <a name="output_group_arn"></a> [group\_arn](#output\_group\_arn) | The ARN assigned by AWS for this group. |
+| <a name="output_group_id"></a> [group\_id](#output\_group\_id) | The group's ID. |
+| <a name="output_group_name"></a> [group\_name](#output\_group\_name) | The group's name. |
+| <a name="output_group_unique_id"></a> [group\_unique\_id](#output\_group\_unique\_id) | The unique ID assigned by AWS for this group. |
 <!-- markdownlint-restore -->
 <!-- markdownlint-disable -->
 ## Makefile Targets
@@ -91,7 +108,7 @@ Available targets:
 
 ## Copyright
 
-Copyright © 2017-2020 [Miquido](https://miquido.com)
+Copyright © 2017-2021 [Miquido](https://miquido.com)
 
 
 

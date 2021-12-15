@@ -1,12 +1,13 @@
 name: miquido-terraform-iam-group
-bitbucket_repo: miquido/terraform-iam-group
+repos:
+  gitlab: miquido/terraform/miquido-terraform-iam-group
 badges: []
 related: []
 # description: ""
 usage: |-
   ```hcl
   module {
-    source = "git::ssh://git@bitbucket.org/miquido/terraform-iam-group.git?ref=master"
+    source = "git::ssh://git@gitlab.com:miquido/terraform/terraform-iam-group.git?ref=master"
 
     name = "ExampleGroup"
     attach_policy_arns = []
