@@ -34,15 +34,13 @@ module {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 2.0 |
-| <a name="requirement_local"></a> [local](#requirement\_local) | >= 1.2 |
-| <a name="requirement_null"></a> [null](#requirement\_null) | >= 2.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 3.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 2.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 3.0 |
 
 ## Modules
 
@@ -108,7 +106,7 @@ Available targets:
 
 ## Copyright
 
-Copyright © 2017-2021 [Miquido](https://miquido.com)
+Copyright © 2017-2022 [Miquido](https://miquido.com)
 
 
 
